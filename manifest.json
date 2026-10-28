@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Dia Tab Titles",
+  "version": "1.0.0",
+  "description": "让 Dia 侧边栏显示网页标题而不是网址：去掉标题里的隐形字符，并为没有标题的网页补上标题。",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": { "default_title": "Dia Tab Titles", "default_popup": "popup.html" },
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" }
+}
